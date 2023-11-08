@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding:0;
+}
+.program_number, .program_name, .program_course, .program_materials, .program_description, .program_comments{
+    border: 1px dotted;
+}
+
+.eduprogram_code, .eduprogram_number, .eduprogram_name, .eduprogram_department, .eduprogram_vstup, .eduprogram_licence, 
+.eduprogram_budget, .eduprogram_contract, .eduprogram_price, .eduprogram_garant{
+    border: 1px dotted;
+}
+
+.program_number{
+    width:30px;
+    text-align: center;
+}
+.program_name{
+    width:370px;
+}
+.program_course{
+    width:30px;
+    text-align: center;
+}
+.program_materials{
+    width:80px;
+    text-align: center;
+}
+.program_description{
+    width:300px;
+    font-size: 10px;
+}
+.program_comments{
+    width:650px;
+    font-size: 10px;
+
+}

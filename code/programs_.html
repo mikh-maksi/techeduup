@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="programs" id = "programs"><div class = "line"><span class = 'program_number'>#</span><span class = 'program_name'>Назва</span><!--<span class = 'program_teacher'>Викладач</span> --><span class = 'program_course'>Рік</span><span class = 'program_materials'>Матеріали</span><span class = 'program_description'>Короткий опис</span><span class =  'program_comments'>Коментарі</span></div></div>
+
+    <script>
+        url = "https://innovations.kh.ua/techeduup/back/disciplines.php";
+        fetch(url).then(function(response) {
+            response.text().then(function(text) {
+            //poemDisplay.textContent = text;
+            discpls = JSON.parse(text);
+            console.log(discpls);
+            dscpls = discpls['disciplines'];
+            programs = document.getElementById("programs");
+            for (dscpl in dscpls){
+                d = dscpls[dscpl];
+                d1 = document.createElement('div');
+
+                elem = document.createElement('span');
+                elem.className = "program_number";
+                elem.innerText = d.id;
+                d1.appendChild(elem);
+
+                elem = document.createElement('span');
+                elem.className = "program_name";
+
+                elem_a = document.createElement('a');
+                elem_a.href = d.link;
+                elem_a.target = "blank";
+                elem_a.innerText = d.name;
+
+                elem.appendChild(elem_a);
+                d1.appendChild(elem);
+
+
+              /*  elem = document.createElement('span');
+                elem.className = "program_teacher";
+                elem.innerText = d.name;
+                d1.appendChild(elem); */
+
+                elem = document.createElement('span');
+                elem.className = "program_course";
+                elem.innerText = d.year;
+                d1.appendChild(elem);
+
+                elem = document.createElement('span');
+                elem.className = "program_materials";
+                elem_a = document.createElement('a');
+                elem_a.href = d.materials_link;
+                elem_a.target = "blank";
+                elem_a.innerText = "матеріали";
+                elem.appendChild(elem_a);
+                d1.appendChild(elem);
+
+
+                elem = document.createElement('span');
+                elem.className = "program_description";
+                elem.innerText = d.abatracts;
+                d1.appendChild(elem);
+
+                elem = document.createElement('span');
+                elem.className = "program_comments";
+                elem.innerText = d.comments;
+                d1.appendChild(elem);
+
+                programs.appendChild(d1);
+                console.log(dscpls[dscpl]);
+            }
+            });
+        });
+
+
+    </script>
+</body>
+</html>
